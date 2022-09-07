@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 100,
+  "backgroundColor": "#ccc",
+  "usingComponents": {}
+}

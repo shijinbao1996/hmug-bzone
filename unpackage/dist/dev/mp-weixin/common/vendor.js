@@ -9184,23 +9184,36 @@ function normalizeComponent (
 
 
 /***/ }),
-/* 12 */,
+/* 12 */
+/*!************************************************************!*\
+  !*** C:/Users/alphabet/Desktop/hmug/hmug/filters/index.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.toFixed = void 0;var toFixed = function toFixed(num) {
+  return Number(num).toFixed(2);
+};exports.toFixed = toFixed;
+
+/***/ }),
 /* 13 */,
 /* 14 */,
 /* 15 */,
 /* 16 */,
 /* 17 */,
-/* 18 */
+/* 18 */,
+/* 19 */
 /*!**********************************************************!*\
   !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
   \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! regenerator-runtime */ 19);
+module.exports = __webpack_require__(/*! regenerator-runtime */ 20);
 
 /***/ }),
-/* 19 */
+/* 20 */
 /*!************************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
   \************************************************************/
@@ -9231,7 +9244,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(/*! ./runtime */ 20);
+module.exports = __webpack_require__(/*! ./runtime */ 21);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -9247,7 +9260,7 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
@@ -9978,7 +9991,7 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /*!********************************************************!*\
   !*** C:/Users/alphabet/Desktop/hmug/hmug/api/index.js ***!
   \********************************************************/
@@ -9986,10 +9999,11 @@ if (hadRuntime) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });var _home = __webpack_require__(/*! ./home */ 22);Object.keys(_home).forEach(function (key) {if (key === "default" || key === "__esModule") return;Object.defineProperty(exports, key, { enumerable: true, get: function get() {return _home[key];} });});
+Object.defineProperty(exports, "__esModule", { value: true });var _home = __webpack_require__(/*! ./home */ 23);Object.keys(_home).forEach(function (key) {if (key === "default" || key === "__esModule") return;Object.defineProperty(exports, key, { enumerable: true, get: function get() {return _home[key];} });});
+var _goods = __webpack_require__(/*! ./goods */ 27);Object.keys(_goods).forEach(function (key) {if (key === "default" || key === "__esModule") return;Object.defineProperty(exports, key, { enumerable: true, get: function get() {return _goods[key];} });});
 
 /***/ }),
-/* 22 */
+/* 23 */
 /*!*******************************************************!*\
   !*** C:/Users/alphabet/Desktop/hmug/hmug/api/home.js ***!
   \*******************************************************/
@@ -9997,7 +10011,7 @@ Object.defineProperty(exports, "__esModule", { value: true });var _home = __webp
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.getFloorsApi = exports.getNavListApi = exports.getBannersApi = void 0;var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 23));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.getFloorsApi = exports.getNavListApi = exports.getBannersApi = void 0;var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 // 获取首页轮播图
 var getBannersApi = function getBannersApi() {return _request.default.get('/home/swiperdata');};
 
@@ -10009,7 +10023,7 @@ var getNavListApi = function getNavListApi() {return _request.default.get('/home
 var getFloorsApi = function getFloorsApi() {return _request.default.get('/home/floordata');};exports.getFloorsApi = getFloorsApi;
 
 /***/ }),
-/* 23 */
+/* 24 */
 /*!************************************************************!*\
   !*** C:/Users/alphabet/Desktop/hmug/hmug/utils/request.js ***!
   \************************************************************/
@@ -10018,7 +10032,7 @@ var getFloorsApi = function getFloorsApi() {return _request.default.get('/home/f
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-var _toast = _interopRequireDefault(__webpack_require__(/*! ./toast */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var Fly = __webpack_require__(/*! flyio/dist/npm/wx */ 25);
+var _toast = _interopRequireDefault(__webpack_require__(/*! ./toast */ 25));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var Fly = __webpack_require__(/*! flyio/dist/npm/wx */ 26);
 var fly = new Fly();
 fly.config.timeout = 3000;
 
@@ -10044,6 +10058,7 @@ fly.interceptors.request.use(function (request) {
 fly.interceptors.response.use(
 function (response) {
   //只将请求结果的data字段返回
+  _toast.default.loading('正在加载中', 1000);
   return response.data;
 },
 function (err) {
@@ -10057,7 +10072,7 @@ function (err) {
 fly;exports.default = _default;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /*!**********************************************************!*\
   !*** C:/Users/alphabet/Desktop/hmug/hmug/utils/toast.js ***!
   \**********************************************************/
@@ -10085,12 +10100,19 @@ toast.success = function (title) {var duration = arguments.length > 1 && argumen
     icon: 'success',
     duration: duration });
 
+};
+toast.loading = function (title, duration) {
+  uni.showToast({
+    title: title,
+    icon: 'loading',
+    duration: duration });
+
 };var _default =
 toast;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 25 */
+/* 26 */
 /*!*******************************************!*\
   !*** ./node_modules/flyio/dist/npm/wx.js ***!
   \*******************************************/
@@ -10895,6 +10917,19 @@ module.exports = function (engine) {
 /***/ })
 /******/ ]);
 });
+
+/***/ }),
+/* 27 */
+/*!********************************************************!*\
+  !*** C:/Users/alphabet/Desktop/hmug/hmug/api/goods.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.getGoodsListApi = void 0;var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+// 获取首页轮播图
+var getGoodsListApi = function getGoodsListApi(data) {return _request.default.get('/goods/search', data);};exports.getGoodsListApi = getGoodsListApi;
 
 /***/ })
 ]]);

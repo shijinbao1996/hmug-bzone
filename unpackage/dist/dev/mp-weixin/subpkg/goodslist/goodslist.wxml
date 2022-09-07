@@ -1,0 +1,1 @@
+<view><block wx:for="{{$root.l0}}" wx:for-item="item" wx:for-index="__i0__" wx:key="goods_id"><van-card vue-id="{{'b1db443c-1-'+__i0__}}" thumb-link="{{'/subpkg/goods_detail/goods_detail?id='+item.$orig.goods_id}}" price="{{item.f0}}" title="{{item.$orig.goods_name}}" thumb="{{item.$orig.goods_small_logo||defaultPic}}" data-com-type="wx" bind:__l="__l"></van-card></block></view>

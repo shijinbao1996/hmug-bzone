@@ -1,4 +1,8 @@
 import App from './App'
+import * as filters from '@/filters/index.js'
+ Object.keys(filters).forEach((key)=>{
+   Vue.filter(key,filters[key])
+ })
 
 // #ifndef VUE3
 import Vue from 'vue'

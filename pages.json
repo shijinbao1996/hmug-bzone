@@ -43,7 +43,18 @@
           {
             "path":"goods_detail/goods_detail"
             }
-        ]
+            ,{
+                    "path" : "goodslist/goodslist",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": true,
+                    "onReachBottomDistance":100,
+                    "backgroundColor": "#ccc"
+                }
+                
+                }
+            ]
       }
     ],
     "tabBar": {
@@ -79,7 +90,12 @@
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "黑马优购",
 		"navigationBarBackgroundColor": "#c00000",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#F8F8F8",
+    "usingComponents": {
+    			"van-button": "/wxcomponents/vant/button/index",
+          "van-card": "/wxcomponents/vant/card/index"
+    		},
+    		"ignoreDevUnusedFiles": false
 	},
 	"uniIdRouter": {}
 }
