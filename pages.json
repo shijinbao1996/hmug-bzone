@@ -2,7 +2,7 @@
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 	    {
             "path" : "pages/home/home",
-            "style" :                                                                                    
+            "style" :                                                                      
             {
                 "navigationStyle": "custom",
                 "enablePullDownRefresh": false
@@ -34,8 +34,17 @@
                 "navigationBarTitleText": "个人中心",
                 "enablePullDownRefresh": false
             }
-            
         }
+    ],
+    "subPackages": [
+      {
+        "root":"subpkg",            
+        "pages": [
+          {
+            "path":"goods_detail/goods_detail"
+            }
+        ]
+      }
     ],
     "tabBar": {
       "selectedColor": "#c00000",
